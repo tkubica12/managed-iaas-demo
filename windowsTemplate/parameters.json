@@ -1,0 +1,48 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "localtomas"
+    },
+    "adminPassword": {
+      "value": "Azure12345678"
+    },
+    "domainAdminUsername": {
+      "value": "tomas"
+    },
+    "domainAdminPassword": {
+      "value": "Azure12345678"
+    },
+    "vnetName": {
+      "value": "company-net"
+    },
+    "subnetName": {
+      "value": "company-user-sub"
+    },
+    "vnetResourceGroup": {
+      "value": "company-environment-rg"
+    },
+    "openPorts": {
+      "value": "3389,80,443"
+    },
+    "vmNamePrefix": {
+      "value": "userapp"
+    },
+    "VmSize": {
+      "value": "Standard_DS2_v2"
+    },
+    "dcIp": {
+      "value": "10.0.0.100"
+    },
+    "domainName": {
+      "value": "mycompany.demo"
+    },
+    "classification": {
+      "value": "PCI-DSS"
+    },
+    "description": {
+      "value": "This is my app"
+    }
+  }
+}

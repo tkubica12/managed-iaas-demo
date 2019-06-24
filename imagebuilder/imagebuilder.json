@@ -1,0 +1,40 @@
+{
+    "type": "Microsoft.VirtualMachineImages/imageTemplates",
+    "apiVersion": "2019-05-01-preview",
+    "location": "eastus2",
+    "dependsOn": [],
+    "properties": {
+        "buildTimeoutInMinutes": 80,
+        "source": {
+            "type": "PlatformImage",
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "18.04.201903060"
+        },
+        "customize": [
+            {
+                "type": "Shell",
+                "name": "Upgrade_and_add_banner",
+                "inline": [
+                    "sudo apt update",
+                    "sudo apt upgrade -y",
+                    "sudo apt install -y figlet",
+                    "sudo figlet Azure | sudo tee /etc/motd"
+                ]
+            }
+        ],
+        "distribute": [
+            {
+                "type": "ManagedImage",
+                "imageId": "/subscriptions/a0f4a733-4fce-4d49-b8a8-d30541fc1b45/resourceGroups/company-automated-images/providers/Microsoft.Compute/images/mujimage",
+                "location": "eastus2",
+                "runOutputName": "tomasCustomImage123",
+                "artifactTags": {
+                    "source": "azVmImageBuilder",
+                    "baseosimg": "ubuntu1804"
+                }
+            }
+        ]
+    }
+}
